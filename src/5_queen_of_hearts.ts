@@ -3,6 +3,7 @@ import { wakeUp } from './6_wake_up';
 import { askQuestion, clear, print } from '../console';
 
 const verdicts = ['Guilty', 'Not Guilty'] as const;
+const Witnesses = ['The March Hare', 'The Mad Hatter', 'The White Rabbit','The Cheshire Cat', 'Tweedledum', 'The Walrus' ] as const;
 type Verdict = typeof verdicts[number];
 
 interface Witness {
@@ -16,7 +17,7 @@ export function meetTheQueen(): void {
 
 	let guilty: boolean = false;
 
-	let witnesses: Witness[] = []; // 👉 FIXME ❌ - call getWitnesses here
+	let witnesses: Witness[] = getWitnesses ()
 
 	if (!witnesses || witnesses.length === 0) {
 		print(`No witnesses have come forward to defend you.`);
@@ -45,7 +46,32 @@ export function meetTheQueen(): void {
 	}
 }
 
-// 👉 FIXME ❌ - this function needs writing to meet the above criteria
-function getWitnesses(): any {
-	return [];
+function getWitnesses(): Array <Witness> {
+	return [
+		{
+			name: 'The Mad Hatter',
+			giveEvidence: () => 'Not Guilty',
+		},
+
+		{
+			name: 'The Cheshire Cat',
+			giveEvidence: () => 'Not Guilty',
+		},
+
+		{
+			name: 'The Walrus',
+			giveEvidence: () => 'Not Guilty',
+		},
+
+		{
+			name: 'Tweedledum',
+			giveEvidence: () => 'Not Guilty',
+		},
+
+		{
+			name: 'The White Rabbit',
+			giveEvidence: () => 'Not Guilty',
+		}
+
+	];
 }
