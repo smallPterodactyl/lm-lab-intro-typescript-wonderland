@@ -1,7 +1,7 @@
 import { endAdventure, haveAdventures } from '..';
 import { askQuestion, clear, print } from '../console';
 
-// This is a very unusual type setup. It's pobably not a great idea in the real world to nest so many properties
+// This is a very unusual type setup. It's probably not a great idea in the real world to nest so many properties
 // with the exact same name. But in Wonderland, this sort of thing is normal, so we've just got to find a way through it...
 interface WakeUp {
 	wake?: WakeUpFromDream;
@@ -45,6 +45,13 @@ export function wakeUp(): void {
 }
 
 function tryToWakeUp(): WakeUp {
-	// 👉 FIXME ❌
-	return {};
-}
+	return {
+			wake: {
+				wake: {
+					wake: {
+						canWake: 'Yes',
+						},
+					},
+				},
+			};	
+   }
